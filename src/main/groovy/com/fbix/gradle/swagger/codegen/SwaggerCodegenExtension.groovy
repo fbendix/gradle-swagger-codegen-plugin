@@ -1,4 +1,4 @@
-package at.bendix.gradle.swagger.codegen
+package com.fbix.gradle.swagger.codegen
 
 import org.gradle.api.Project
 

@@ -1,4 +1,4 @@
-package at.bendix.gradle.swagger.codegen
+package com.fbix.gradle.swagger.codegen
 
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.Assert
@@ -12,13 +12,13 @@ class SwaggerCodegenPluginTest {
     @Before
     void setUp() {
         project = ProjectBuilder.builder().build()
-        project.apply plugin: 'co.riiid.gradle'
+        project.apply plugin: 'com.fbix.gradle.swagger.codegen'
 
     }
 
     @Test
-    void shouldHasGithubReleaseTask() {
-        Assert.assertTrue(project.tasks.githubRelease instanceof ReleaseTask)
+    void shouldHaveSwaggerCodegenTask() {
+        Assert.assertTrue(project.tasks.swaggerCodegen instanceof SwaggerCodegenTask)
     }
 }
 

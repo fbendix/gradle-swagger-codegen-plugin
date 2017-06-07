@@ -1,38 +1,38 @@
-//buildscript {
-//    repositories {
-//        maven {
-//            url "https://plugins.gradle.org/m2/"
-//        }
-//    }
-//    dependencies {
-//        classpath "com.gradle.publish:plugin-publish-plugin:0.9.3"
-//    }
-//}
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "com.gradle.publish:plugin-publish-plugin:0.9.7"
+    }
+}
 
 apply plugin: 'groovy'
 apply plugin: 'maven'
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
-//apply plugin: "com.gradle.plugin-publish"
+apply plugin: "com.gradle.plugin-publish"
 
 def GradleSwaggerCodegenPluginGroupId = 'at.bendix.gradle'
 def GradleSwaggerCodegenPluginVersion = '0.1.0'
 def GradleSwaggerCodegenPluginArtifact = 'gradle-swagger-codegen-plugin'
-def GradleSwaggerCodegenPluginUrl = 'https://github.com/riiid/gradle-swagger-codegen-plugin'
+def GradleSwaggerCodegenPluginUrl = 'https://github.com/fbix/gradle-swagger-codegen-plugin'
 
-//pluginBundle {
-//    website = GradleSwaggerCodegenPluginUrl
-//    vcsUrl = GradleSwaggerCodegenPluginUrl
-//    description = 'Gradle plugin for swagger codegen releases'
-//    tags = ['swagger-codegen', 'gradle', 'release', 'releases']
-//
-//    plugins {
-//        greetingsPlugin {
-//            id = 'co.riiid.gradle'
-//            displayName = 'Gradle plugin for swagger codegen releases'
-//        }
-//    }
-//}
+pluginBundle {
+    website = GradleSwaggerCodegenPluginUrl
+    vcsUrl = GradleSwaggerCodegenPluginUrl
+    description = 'Gradle plugin for Swagger Codegen'
+    tags = ['swagger-codegen', 'gradle']
+
+    plugins {
+        greetingsPlugin {
+            id = 'com.fbix.gradle.swagger.codegen'
+            displayName = 'Gradle plugin for Swagger Codegen'
+        }
+    }
+}
 
 task javadocJar(type: Jar) {
     classifier = 'javadoc'

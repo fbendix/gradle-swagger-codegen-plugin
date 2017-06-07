@@ -1,12 +1,7 @@
-package at.bendix.gradle.swagger.codegen
+package com.fbix.gradle.swagger.codegen
 
-import groovyx.net.http.ContentType
-import groovyx.net.http.Method
 import org.gradle.api.DefaultTask
-import org.gradle.api.tasks.Classpath
 import org.gradle.api.tasks.TaskAction
-import org.gradle.api.GradleScriptException
-import org.zeroturnaround.zip.ZipUtil
 
 class SwaggerCodegenTask extends DefaultTask {
 
