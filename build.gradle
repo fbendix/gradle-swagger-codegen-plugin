@@ -23,8 +23,8 @@ def GradleSwaggerCodegenPluginUrl = 'https://github.com/fbix/gradle-swagger-code
 // In GitLab project variables are not allowed to contain dots
 project.afterEvaluate {
     // Get values from $USER_HOME/.gradle/gradle.properties
-    def key = project.properties['gradle_publish_key']
-    def secret = project.properties['gradle_publish_secret']
+    def key = "$System.env.gradle_publish_key"
+    def secret = "$System.env.gradle_publish_secret"
 
     if (key && secret) {
         System.properties.setProperty('gradle.publish.key', key)
