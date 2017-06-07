@@ -16,9 +16,21 @@ apply plugin: 'signing'
 apply plugin: "com.gradle.plugin-publish"
 
 def GradleSwaggerCodegenPluginGroupId = 'at.bendix.gradle'
-def GradleSwaggerCodegenPluginVersion = '0.1.0'
+def GradleSwaggerCodegenPluginVersion = '0.1.1'
 def GradleSwaggerCodegenPluginArtifact = 'gradle-swagger-codegen-plugin'
 def GradleSwaggerCodegenPluginUrl = 'https://github.com/fbix/gradle-swagger-codegen-plugin'
+
+// In GitLab project variables are not allowed to contain dots
+project.afterEvaluate {
+    // Get values from $USER_HOME/.gradle/gradle.properties
+    def key = project.properties['gradle_publish_key']
+    def secret = project.properties['gradle_publish_secret']
+
+    if (key && secret) {
+        System.properties.setProperty('gradle.publish.key', key)
+        System.properties.setProperty('gradle.publish.secret', secret)
+    }
+}
 
 pluginBundle {
     website = GradleSwaggerCodegenPluginUrl
